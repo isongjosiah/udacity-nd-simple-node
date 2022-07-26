@@ -18,5 +18,5 @@ script:
   - docker tag simple-node isongjosiah/udacity-nd-simple-node:latest
 
 after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAE" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker push isongjosiah/udacity-nd-simple-node
