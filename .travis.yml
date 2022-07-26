@@ -1,0 +1,22 @@
+language: node_js
+
+node_js:
+  - "13"
+
+services:
+  -docker
+
+install:
+  - echo "nothig needs to be installed"
+
+before_script:
+  - echo "no tests"
+
+script:
+  - docker --version
+  - docker build -t simple-node .
+  - docker tag simple-node isongjosiah/udacity-nd-simple-node:latest
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAE" --password-stdin
+  - docker push isongjosiah/udacity-nd-simple-node
